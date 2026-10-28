@@ -1,22 +1,13 @@
 # open-english-pc / web
 
-`open-english` の**共有 Web クライアント**（ブラウザで動く静的フロントエンド）。
-`open-english` 本体リポジトリから `git filter-repo` で履歴を保って移設
-（2026-09-10、Phase 2）。
+**引っ越しました / We have moved — https://maid-cafe.tokyo**
 
-- `index.html` / `style.css` / `app.js` … 本体
-- `auto-update.js` … 自動アップデート UI（`open-english-server` の
-  `self_update` / `component_update` と連携）
-- `sw.js` / `manifest.json` … PWA（Service Worker・インストール）
-- `version.json` … 現在バージョン
-- `exam-prep-questions.json` … 資格試験対策の問題データ
-- `facebook.html` / `qr-confirm.html` / `vault.html` … ログイン/連携フロー用ページ
-- `icons/` … アプリアイコン
+日本語: この画面は **https://maid-cafe.tokyo** に引っ越しました。`index.html` は、引っ越しの案内(日本語・英語)と、新しい Web 版へのリンクだけです。古い画面(`app.js`・`style.css` など)は削除しました(履歴は git に残っています。復元は `git log -- web/app.js` で探せます)。
 
-pc / tablet / mobile はこの共有クライアントを土台に、プラットフォーム固有の
-パッケージング（インストーラ・起動設定）だけを持つ。
+English: This client has moved to **https://maid-cafe.tokyo**. `index.html` now contains only the move notice (Japanese and English) and a link to the new web version. The old screens (`app.js`, `style.css`, …) were removed; they remain in git history.
 
-**Phase 2b（未）**: `open-english` 本体側は現在も同じファイルのコピーを保持して
-デモ配信している。本体の `release.yml` / `installer/windows/open-english.iss` /
-`server/src/main.rs`（静的 root）をこの `web/` を参照する形へ切り替え、
-本体からコピーを削除する（取得方法は submodule か CI clone を選択）。
+- `index.html` … 引っ越しの案内とリンク / the move notice and link
+- `version.json` … バージョン(Android の Gradle が読む) / version (read by the Android Gradle build)
+- `icons/` … アイコン / icons
+
+Android 版(`mobile/android`)は、ビルド時にこの `web/` を `assets/webroot/` へ同期します。 / The Android build syncs this `web/` into `assets/webroot/`.
